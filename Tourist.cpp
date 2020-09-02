@@ -1,3 +1,8 @@
+/*
+*  author : Nikhil 
+*  CF,CC : not_found99
+*  SPOJ:   emintrude
+*/
 #include<bits/stdc++.h>
 #define int long long
 using namespace std;
@@ -38,7 +43,7 @@ void solve(){
     cout<<maxNumberOfInterestingLocations(1,1,1,1)<<"\n";
 }
 int32_t main(){
-	ios_base::sync_with_stdio(false);
+    ios_base::sync_with_stdio(false);
     int t;
     cin>>t;
     while(t--){

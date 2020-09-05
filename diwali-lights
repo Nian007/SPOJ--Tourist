@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+#define int long long
+using namespace std;
+const int mod = 1e6+3;
+int n,k;
+int dp[100][3][100];
+int calculateWays(int idx, int prev, int cnt){
+	if(idx==n){
+		if(cnt==k)
+			return 1;
+		return 0;
+	}
+	if(dp[idx][prev][cnt]!=-1)
+		return dp[idx][prev][cnt];
+	int ans=0;
+	if(prev==1){
+		ans = ans + calculateWays(idx+1, 1, cnt+1);
+	} else {
+		ans = ans + calculateWays(idx+1, 1, cnt);
+	}
+	ans%=mod;
+	ans = ans + calculateWays(idx+1, 0, cnt);
+	ans%=mod;
+	return dp[idx][prev][cnt]=ans;
+	
+}
+int32_t main(){
+	int t;
+	cin>>t;
+	while(t--){
+		cin>>n>>k;
+		memset(dp,-1,sizeof(dp));
+		cout<<(calculateWays(1,0,0)+calculateWays(1,1,0))%mod<<"\n";
+	}
+}
